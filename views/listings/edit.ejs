@@ -1,0 +1,107 @@
+ <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+</head>  -->
+
+<%layout('/layouts/boilerplate') -%>
+
+    <div class="col-8 offset-2">
+    
+    <h3>Edit your listing</h3>   
+    <form action="/listings/<%=listing._id%>?_method=PUT" 
+      method="POST"
+      novalidate class="needs-validation"
+      enctype="multipart/form-data">
+       
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input class="form-control" type="text" value="<%=listing.title%>" name="listing[title]" required>
+            <div class="invalid-feedback">
+              please enter a title
+            </div>
+          </div>
+         <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+             <textarea class="form-control" 
+              name="listing[description]" id="" cols="21" rows="5" 
+              required><%=listing.description%></textarea>
+             <div class="invalid-feedback">
+              please enter a valid description
+            </div>
+            </div>
+
+             <div class="mb-3" >
+              Origina listing Image: <br> <br>
+              <img src="<%= originalImageUrl %>"  width="240" height="150"/>
+             </div>
+
+            <div class="mb-3">
+            <label for="image" class="form-label">Upload new Image</label>
+            <input class="form-control" 
+            name="listing[image]"
+            type="file">
+
+            <div class="invalid-feedback">
+              please enter a image
+            </div>
+          </div>
+           <div class="row">
+             <div class="mb-3 col-md-4">
+               <label for="price" class="form-label">Price</label>
+                <input class="form-control" type="text" value="<%=listing.price%>" name="listing[price]" required>
+                <div class="invalid-feedback">
+                  please enter a valid price
+                </div>
+              </div>
+           <div class="mb-3 col-md-4">
+              <label for="country" class="form-label">Country</label>
+              <input class="form-control" type="text" value="<%=listing.country%>" name="listing[country]" required> 
+              <div class="invalid-feedback"> 
+                please enter a valid country
+              </div>
+            </div> 
+            </div>
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input class="form-control" type="text" value="<%=listing.location%>" name="listing[location]" required>
+            <div class="invalid-feedback">
+              please enter a valid location
+            </div>
+          </div>
+
+         
+          <div class=" form-section">
+            <div class="mb-3">
+              <label for="category" class="form-label" required>Category</label>
+              <select id="category" name="listing[category]" class="form-control" required>
+                <!-- <option value="<%=listing.category%>" disabled selected><%=listing.category%></option> -->
+                <option value="trending">Trending</option>
+                <option value="rooms">Rooms</option>
+                <option value="beach">Beach</option>
+                <option value="pools">Pools</option>
+                <option value="top-cities">Top Cities</option>
+                <option value="mountains">Mountains</option>
+                <option value="ski-in/out">Ski-in/out</option>
+                <option value="castles">Castles</option>
+                <option value="camping">Camping</option>
+                <option value="farms">Farms</option>
+                <option value="boats">Boats</option>
+                <option value="lake">Lake</option>
+              </select>
+              <div class="invalid-feedback">
+                please select a category
+              </div>
+            </div>
+          </div>
+    
+            <button class="btn btn-dark add-btn">Edit</button>
+                <br>
+          <br>
+    </form> 
+    
+<script src="/js/script.js"></script>
+    </div>
+  

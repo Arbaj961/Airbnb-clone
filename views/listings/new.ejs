@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+</head> -->
+<%layout('/layouts/boilerplate') %>
+<div class="row">
+    <div class="col-8 offset-2">   
+        <br>
+     <h2>Create a new listing</h2>
+    <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input class="form-control" type="text" placeholder="Add a cachy title" name="listing[title]" required>
+        <div class="valid-feedback"> Looks good!</div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" name="listing[description]" id="" cols="21" rows="5" required></textarea>
+        <div class="invalid-feedback">
+            please enter a valid description
+          </div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+         <input type="file" class="form-control" name="listing[image]">
+    </div>  
+    
+       <div class="row">
+    <div class="mb-3 col-md-4">
+        <label for="price" class="form-label">Price</label>
+        <input class="form-control" placeholder="enter price" name="listing[price]" required>
+        <div class="invalid-feedback">
+            please enter a valid price
+          </div>
+    </div>
+     <div class="mb-3 col-md-8">
+        <label for="country" class="form-label">Country</label>
+        <input class="form-control" type="text" placeholder="India" name="listing[country]" required>
+        <div class="invalid-feedback">
+         please enter a valid country
+          </div>
+
+    </div>
+    </div>
+     <div class="mb-3">
+        <label for="location" class="form-label" required>Location</label>
+        <input class="form-control" type="text" placeholder="Jaipur,Rajsthan" name="listing[location]" required>
+        <div class="invalid-feedback">
+            please enter a valid location
+          </div>
+     </div>
+
+       <div class=" form-section">
+        <div class="mb-3">
+          <label for="category" class="form-label" required>Select Category</label>
+          <select id="category" name="listing[category]" aria-placeholder="category" class="form-control" required>
+            <option value="" disabled selected>--Select a category--</option>
+            <option value="trending">Trending</option>
+            <option value="rooms">Rooms</option>
+            <option value="beach">Beach</option>
+            <option value="pools">Pools</option>
+            <option value="top-cities">Top Cities</option>
+            <option value="mountains">Mountains</option>
+            <option value="ski-in/out">Ski-in/out</option>
+            <option value="castles">Castles</option>
+            <option value="camping">Camping</option>
+            <option value="farms">Farms</option>
+            <option value="boats">Boats</option>
+            <option value="lake">Lake</option>
+          </select>
+          <div class="invalid-feedback">
+            please select category
+          </div>
+        </div>
+      </div>
+
+
+
+        <button class="btn btn-dark add-btn">Add</button>
+    <br><br>
+    </form>
+   </div>
+
+</div>
+    
